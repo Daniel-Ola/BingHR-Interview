@@ -26,3 +26,14 @@
     border-right: 4px inset #0395FF;
 }
 
+#nav-search {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+#nav-search:focus {
+    z-index: 0 !important;
+    outline: none !important;
+}
+
+
