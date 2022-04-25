@@ -1,4 +1,4 @@
-<nav class="container mx-auto">
+<nav class="container mx-auto py-3" style="border-bottom: 2px solid #F6F9FC;">
 
     <div class="d-flex justify-content-between align-items-center mt-3" style="width: 100%;">
         <div class="d-flex g-3 me-auto align-items-center">

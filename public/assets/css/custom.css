@@ -36,4 +36,19 @@
     outline: none !important;
 }
 
+.name-tab {
+    width: 50%;
+}
+
+.created-tab {
+    width: 15%;
+}
+
+.role-tab {
+    width: 25%;
+}
+
+.action-tab {
+    width: 10%;
+}
 
