@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Permission;
 use Illuminate\Database\Seeder;
 
 class PermissionsSeeder extends Seeder
@@ -13,6 +14,20 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Permission::create([
+            'title' => 'read'
+        ]);
+
+        Permission::create([
+            'title' => 'write'
+        ]);
+
+        Permission::create([
+            'title' => 'delete'
+        ]);
+
+        Permission::create([
+            'title' => 'update'
+        ]);
     }
 }

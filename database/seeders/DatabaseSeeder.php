@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Level;
+use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Database\Seeder;
 
@@ -16,9 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            \App\Models\User::factory(10)->create(),
-            Role::factory(5)->create(),
-            Level::factory(5)->create()
+//            RoleSeeder::class,
+//            LevelSeeder::class,
+//            Permission::class,
+//            \App\Models\User::factory(10)->create()
         ]);
     }
 }
