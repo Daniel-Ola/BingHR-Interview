@@ -42,8 +42,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role()
+//    public function role()
+//    {
+//        return $this->hasOne(Role::class);
+//    }
+
+    public function scopeRole($query)
     {
-        return $this->hasOne(Role::class);
+        return $query->join('roles as r', 'users.role_id', '=', 'r.id');
     }
+
+    public function scopeLevel($query)
+    {
+        return $query->join('levels as l', 'users.level_id', '=', 'l.id');
+    }
+
+//    public function levels()
+//    {
+//        return $this->hasOne(Level::class);
+//    }
 }

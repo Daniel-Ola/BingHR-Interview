@@ -24,8 +24,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::all()->withRole();
-        dd($users->first());
+        $users = User::role()
+            ->level()
+            ->select('users.*', 'r.title as user_role', 'l.title as user_level')
+            ->take(5)
+            ->get();
         return view('home', compact('users'));
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->firstname} {$this->lastname}";
     }
 }

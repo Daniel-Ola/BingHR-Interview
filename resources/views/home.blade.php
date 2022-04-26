@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+{{--         position-relative--}}
 
         <div class="d-flex justify-content-end">
             <div class="">
@@ -36,28 +37,28 @@
                     <div class="action-tab">Action</div>
                 </div>
                 <div class="" id="table-body">
-{{--                    @forelse($users as $user)--}}
-                    <div class="d-flex justify-content-around p-3" style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);">
-                        <div class="name-tab d-flex">
-                            <div style="width: 50px; height: 50px; border-radius: 100%;" class="show-box">
+                    @forelse($users as $user)
+                    <div class="d-flex justify-content-around align-items-center p-3" style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);">
+                        <div class="name-tab d-flex justify-content-end align-items-center" style="padding-right: 2rem">
+                            <div style="width: 50px; height: 50px; border-radius: 100%;">
                                 <img src="https://randomuser.me/api/portraits/men/73.jpg" alt="" class="w-100 h-100 position-relative rounded-circle">
                             </div>
-                            <div class="d-flex flex-column show-box justify-content-start align-items-center">
-                                <div>Name</div>
-                                <div>Email</div>
+                            <div class="d-flex flex-column justify-content-center align-items-start flex-grow-1" style="margin-left: .5rem;">
+                                <div style="text-align: left;">{{ $user->firstname . ' ' . $user->lastname }}</div>
+                                <div style="text-align: left;">{{ $user->email }}</div>
                             </div>
                             <div class="mx-auto">
-                                <span class="btn btn-danger">Level</span>
+                                <span class="btn btn-danger">{{ $user->user_level }}</span>
                             </div>
 
                         </div>
-                        <div class="created-tab">Created Date</div>
-                        <div class="role-tab">Role</div>
+                        <div class="created-tab">{{ \Carbon\Carbon::parse($user->create_at)->format('d M, Y') }}</div>
+                        <div class="role-tab">{{ $user->user_role }}</div>
                         <div class="action-tab">Action</div>
                     </div>
-{{--                    @empty--}}
-{{--                        No results found--}}
-{{--                    @endforelse--}}
+                    @empty
+                        No results found
+                    @endforelse
                 </div>
 
             </div>
