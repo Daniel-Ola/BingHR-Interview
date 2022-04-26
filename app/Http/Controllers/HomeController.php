@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::all()->withRole();
+        dd($users->first());
         return view('home', compact('users'));
     }
 }

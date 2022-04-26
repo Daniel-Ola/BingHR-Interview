@@ -22,13 +22,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @stack("custom-styles")
 </head>
-<body>
+<body style="overflow-x: hidden;">
+{{-- class="d-flex flex-column justify-content-between min-vh-100"--}}
     <div id="app" class="d-flex">
         @include("layouts.partials.sidebar")
 
         <div style="background-color: #F9FBFD" class="w-100">
             @include("layouts.partials.topbar")
             @yield('content')
+            @include("layouts.partials.footer")
         </div>
     </div>
 </body>
