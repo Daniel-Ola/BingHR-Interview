@@ -6,7 +6,7 @@
 
         <div class="d-flex justify-content-end">
             <div class="">
-                <button type="button" class="btn btn-success">Add User</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-title="Add New User" data-button="Add User" data-url="{{ route('users.create') }}">Add User</button>
             </div>
         </div>
 
@@ -85,7 +85,7 @@
                 modal.find("[name='password']").val('');
                 modal.find("[name='confirm_password']").val('');
                 modal.find('.modal-title').text(button.data('title'))
-                modal.find('#submitModalForm').text(button.data('type'))
+                modal.find('#submitModalForm').html(button.data('button'))
                 modal.find('form').attr('action', button.data('url'))
             })
 

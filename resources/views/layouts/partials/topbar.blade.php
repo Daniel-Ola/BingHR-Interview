@@ -2,8 +2,8 @@
 
     <div class="d-flex justify-content-between align-items-center mt-3" style="width: 100%;">
         <div class="d-flex g-3 me-auto align-items-center">
-            <div class="col-auto" style="margin-right: 3rem">
-                <h3>Users</h3>
+            <div class="col-auto text-center d-flex align-items-center" style="margin-right: 3rem; margin-left: 1.5rem;">
+                <h5>Users</h5>
             </div>
             <div class="col-auto" style="margin-right: 1.5rem">
 
@@ -30,7 +30,7 @@
             <div class="col-auto">
 
                 <div class="input-group" style="width: 300px; background-color: #fff; border-radius: 50px">
-                    <input type="text" class="form-control" id="nav-search" placeholder="Search...">
+                    <input type="text" class="form-control" id="nav-search" placeholder="Search..." style="border: none">
                     <div class="position-absolute top-0 bottom-0" style="right: 10px; color: #DFE4EE">
                         <div class="d-flex align-items-center h-100">
                             <i class="fa fa-search"></i>
@@ -75,13 +75,21 @@
                     </ul>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link nav-item-has-dot" aria-current="page" href="#">
+                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-circle" style="font-size: 10px"></i>
+                    </a>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link nav-item-has-dot" aria-current="page" href="#">
+                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-circle" style="font-size: 10px"></i>
+                    </a>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link position-relative" aria-current="page" href="#" style="color: #000; font-size: 15px">
+                        <i class="fa fa-user"></i>
+                    </a>
                 </div>
             </div>
         </div>

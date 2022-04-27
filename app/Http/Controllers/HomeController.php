@@ -66,4 +66,29 @@ class HomeController extends Controller
         ];
         return response()->json($response);
     }
+
+    public function addUser(Request $request): \Illuminate\Http\JsonResponse
+    {
+        if ($request->password !== $request->confirm_password) return response()->json(['success' => false, 'message' => 'Password mismatch']);
+        try {
+            $user = User::create($request->except(['id', 'confirm_password']));
+            if ($user) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'User Created Successfully'
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Could not create user; unknown error'
+                ]);
+            }
+        } catch (\Exception $exception)
+        {
+            return response()->json([
+                'success' => false,
+                'message' => $exception->getMessage()
+            ]);
+        }
+    }
 }
