@@ -18,9 +18,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
         'email',
         'password',
+        'employee_id',
+        'level_id',
+        'mobile_number',
+        'profile_picture',
+        'role_id',
+        'username',
     ];
 
     /**
@@ -55,6 +62,16 @@ class User extends Authenticatable
     public function scopeLevel($query)
     {
         return $query->join('levels as l', 'users.level_id', '=', 'l.id');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->firstname} {$this->lastname}";
+    }
+
+    public function getCreatedDateAttribute()
+    {
+        return \Carbon\Carbon::parse($this->created_at)->format('d M, Y');
     }
 
 //    public function levels()

@@ -7,12 +7,24 @@
             </div>
             <div class="col-auto" style="margin-right: 1.5rem">
 
-                <div class="position-relative" style="width: 100px; height: 42px;">
-                    @include("layouts.components.NiceSelect.nice-select", [
-                                'placeholder' => 'Year',
-                                'options' => ['2022', '2021', '2020']
-                            ])
+                <div class="input-group" style="width: 100px; background-color: #fff;">
+                    <select id="nav-select" name="sort_by_year" class="form-control outline-none w-100 border-0" data-url="{{ route('get_users') }}">
+                        <option selected value="">Year</option>
+                    </select>
+                    <div class="position-absolute top-0 bottom-0" style="right: 5px; color: #DFE4EE">
+                        <div class="d-flex flex-column align-items-center h-100 justify-content-around">
+                            <i class="fa fa-caret-up" style="top: 5px; position: relative"></i>
+                            <i class="fa fa-caret-down" style="bottom: 5px; position: relative"></i>
+                        </div>
+                    </div>
                 </div>
+
+{{--                <div class="position-relative d-none" style="width: 100px; height: 42px;">--}}
+{{--                    @include("layouts.components.NiceSelect.nice-select", [--}}
+{{--                                'placeholder' => 'Year',--}}
+{{--                                'options' => ['2022', '2021', '2020']--}}
+{{--                            ])--}}
+{{--                </div>--}}
 
             </div>
             <div class="col-auto">
@@ -31,25 +43,45 @@
 
         <div class="">
             <div class="d-flex flex-row">
-                <div class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Language
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <li><a class="dropdown-item" href="#">English</a></li>
+                        <li><a class="dropdown-item" href="#">Yoruba</a></li>
+                        <li><a class="dropdown-item" href="#">Hausa</a></li>
+                        <li><a class="dropdown-item" href="#">Igbo</a></li>
+                    </ul>
                 </div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Reports
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                        <li><a class="dropdown-item" href="#">Assignment</a></li>
+                        <li><a class="dropdown-item" href="#">Exam</a></li>
+                        <li><a class="dropdown-item" href="#">Inference</a></li>
                     </ul>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Project
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                        <li><a class="dropdown-item" href="#">Project X</a></li>
+                        <li><a class="dropdown-item" href="#">Project Y</a></li>
+                        <li><a class="dropdown-item" href="#">Project Z</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </div>
             </div>
         </div>
