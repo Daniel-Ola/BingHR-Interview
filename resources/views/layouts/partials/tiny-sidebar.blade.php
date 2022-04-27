@@ -2,12 +2,12 @@
 
     <div class="d-flex align-items-center flex-column" style="height: 100%; color: #7BC6FF;">
 
-        <div class="d-flex flex-column mb-auto" style="margin-top: 5rem;">
-            <i class="fa fa-search p-2"></i>
-            <i class="fa fa-briefcase p-2"></i>
-            <i class="fa fa-user p-2"></i>
-            <i class="fa fa-comment-dots p-2"></i>
-            <i class="fa fa-file p-2"></i>
+        <div class="d-flex flex-column mb-auto" style="margin-top: 5.6rem;">
+            <i class="fa fa-search slim-bar-icon-list p-2"></i>
+            <i class="fa fa-briefcase slim-bar-icon-list p-2"></i>
+            <i class="fa fa-user slim-bar-icon-list p-2"></i>
+            <i class="fa fa-comment-dots slim-bar-icon-list p-2"></i>
+            <i class="fa fa-file slim-bar-icon-list p-2"></i>
         </div>
 
         <div class="d-flex flex-column justify-content-center align-items-center slim-bar">

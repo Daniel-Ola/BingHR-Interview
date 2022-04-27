@@ -27,6 +27,10 @@
     border-right: 4px inset #0395FF;
 }
 
+.slim-bar-icon-list {
+    margin-bottom: 15px;
+}
+
 #nav-search {
     background-color: #fff;
     border-radius: 5px;
