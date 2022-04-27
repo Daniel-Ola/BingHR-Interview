@@ -1,6 +1,7 @@
 #tiny-sidebar {
     background: #0395FF;
     width: 20%;
+    padding: 0 20px 0 20px;
 }
 
 .show-box {
@@ -112,4 +113,12 @@
     position: absolute;
     top: 5px;
     right: 15px;
+}
+
+/*.slim-bar .slim-bar-item:last-child {*/
+/*    margin-bottom: 0;*/
+/*}*/
+
+.slim-bar .slim-bar-item {
+    margin-bottom: 20px;
 }
