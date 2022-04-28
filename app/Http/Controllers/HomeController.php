@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -29,14 +30,14 @@ class HomeController extends Controller
         $users = User::role()
             ->level()
             ->select('users.*', 'r.title as user_role', 'l.title as user_level')
-            ->take(5)
-            ->get();
+            ->paginate(5);
+//            ->get();
         return view('home', compact('users'));
     }
 
-    public function getUsers($request)
+    public function getUsers($request = '')
     {
-        $request = json_decode($request);
+        if ($request) $request = json_decode($request);
         $users = User::when(isset($request->year), function($query) use($request) {
             return $query->where('users.created_at', '>=', Carbon::createFromDate($request->year)->startOfYear())
                 ->where('users.created_at', '<=', Carbon::createFromDate($request->year)->endOfYear());
@@ -48,23 +49,33 @@ class HomeController extends Controller
         })->role()
         ->level()
         ->select('users.*', 'r.title as user_role', 'l.title as user_level')
-        ->take(5)
-        ->get();
+        ->simplePagination(5);
+//        ->get();
         return view($this->userComponent . 'user-list', compact('users'));
+//        return view($this->userComponent . 'user-list')->withUsers($users);
     }
 
     public function updateUsers(Request $request)
     {
+//        dd($request);
         $user = User::find($request->id);
         $request_data = $request->except(['password', 'confirm_password', 'id']);
-        $user->update($request_data);
+        $update = $user->update($request_data);
         $new_user = User::find($request->id);
-        $response = [
-            'success' => true,
-            'message' => 'User updated successfully',
-            'data' => $new_user
-        ];
-        return response()->json($response);
+        if ($update) {
+            $response = [
+                'success' => true,
+                'message' => 'User updated successfully',
+                'data' => $new_user
+            ];
+            return response()->json($response);
+        } else {
+            $response = [
+                'success' => false,
+                'message' => 'User not updated successfully'
+            ];
+            return response()->json($response);
+        }
     }
 
     public function addUser(Request $request): \Illuminate\Http\JsonResponse
@@ -72,7 +83,10 @@ class HomeController extends Controller
         // use validator instead
         if ($request->password !== $request->confirm_password) return response()->json(['success' => false, 'message' => 'Password mismatch']);
         try {
-            $user = User::create($request->except(['id', 'confirm_password']));
+//            $request->password = Hash::make($request->password);
+            $data = $request->except(['id', 'confirm_password', 'password']);
+            $data['password'] = Hash::make($request->password);
+            $user = User::create($data);
             if ($user) {
                 return response()->json([
                     'success' => true,

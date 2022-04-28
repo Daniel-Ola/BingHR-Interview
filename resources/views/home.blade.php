@@ -53,13 +53,18 @@
                     </div>
                     <div class="" id="table-body">
                         @include('components.user.user-list')
+{{--                        @dd($users)--}}
                     </div>
                 </div>
 
             </div>
 
+            <div class="mt-3 d-flex flex-row-reverse justify-content-evenly align-items-center">
+                <a href="{{ $users->nextPageUrl() }}">Next</a>
+                <a href="{{ $users->previousPageUrl() }}">Previous</a>
+            </div>
         </div>
-{{--        End Table Section--}}
+        {{--        End Table Section--}}
 
         @include('components.user.user-edit-modal')
     </div>
@@ -123,10 +128,15 @@
                 // const params = Object.fromEntries(new URLSearchParams(formData));
                 let ajaxRequest = $.post(url, formData)
                 ajaxRequest.done(function (data) {
+                    self.$("#modal-closer").trigger("click");
                     if (data.success)
                     {
+                        alert(data.message)
                         getUsers();
-                        self.$("#modal-closer").trigger("click");
+                        // self.$("#modal-closer").trigger("click");
+                    } else {
+                        console.log(data);
+                        alert(data.message)
                     }
                 })
             })
