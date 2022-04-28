@@ -20,7 +20,7 @@
             <a href="#edit-user-{{ $user->id }}" style="color: #D5DBE8" data-bs-toggle="modal" data-bs-target="#exampleModal" data-user="{{ $user }}" data-title="Edit User" data-button="Edit User" data-url="{{ route('update_users') }}">
                 <i class="fa fa-pencil"></i>
             </a>
-            <a href="#" class="mx-auto" style="color: #D5DBE8">
+            <a href="#" class="mx-auto delete-user" style="color: #D5DBE8" data-user="{{ $user->id }}" data-url="{{ route('users.delete') }}">
                 <i class="fa fa-trash"></i>
             </a>
         </div>

@@ -182,6 +182,25 @@
                 console.log(item.val())
             })
 
+            //delete user
+            $('.delete-user').on('click', function(event) {
+                event.preventDefault();
+                const btn = $(this)
+                const url = btn.data('url');
+                const user = btn.data('user');
+                let ajaxRequest = $.post(url, {user: user})
+                ajaxRequest.done(function (data) {
+                    if (data.success)
+                    {
+                        alert(data.message)
+                        getUsers();
+                    } else {
+                        console.log(data);
+                        alert(data.message)
+                    }
+                })
+            })
+
 
         });
 

@@ -24,3 +24,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/get-user/{data?}', [App\Http\Controllers\HomeController::class, 'getUsers'])->name('get_users');
 Route::post('/update-user', [App\Http\Controllers\HomeController::class, 'updateUsers'])->name('update_users');
 Route::post('/add-user', [App\Http\Controllers\HomeController::class, 'addUser'])->name('users.create');
+Route::post('/delete-user', [App\Http\Controllers\HomeController::class, 'deleteUser'])->name('users.delete');

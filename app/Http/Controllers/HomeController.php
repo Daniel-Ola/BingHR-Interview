@@ -105,4 +105,20 @@ class HomeController extends Controller
             ]);
         }
     }
+
+    public function deleteUser(Request $request)
+    {
+        $deleteUser = User::find($request->user)->delete();
+        if ($deleteUser) {
+            return response()->json([
+                'success' => true,
+                'message' => 'User Deleted Successfully'
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Could not delete user; unknown error'
+            ]);
+        }
+    }
 }
