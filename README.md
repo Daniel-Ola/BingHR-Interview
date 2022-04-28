@@ -36,6 +36,7 @@ To deploy this project run
 ```bash
     npm install && npm run dev
 ```
+- Create a database and set DB_DATABASE value in your .env file to the name of the databse created
 
 ```bash
     php artisan migrate
