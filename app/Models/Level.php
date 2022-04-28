@@ -9,8 +9,21 @@ class Level extends Model
 {
     use HasFactory;
 
+    protected $table = 'levels';
+
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'level_permissions');
+    }
+
+    public function getAliasAttribute()
+    {
+        $name = strtolower($this->title);
+        return str_replace(' ', '_', $name);
     }
 }

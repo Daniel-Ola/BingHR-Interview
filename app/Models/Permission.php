@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Permission extends Model
 {
     use HasFactory;
+
+    protected $table = 'permissions';
+
+//    public function levels()
+//    {
+//        return $this->belongsToMany(Level::class, 'level_permissions');
+//    }
 }

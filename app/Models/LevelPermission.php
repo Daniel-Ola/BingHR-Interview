@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class LevelPermission extends Model
 {
     use HasFactory;
+
+    protected $table = 'level_permissions';
 }
