@@ -18,14 +18,6 @@
                         </div>
                     </div>
                 </div>
-
-{{--                <div class="position-relative d-none" style="width: 100px; height: 42px;">--}}
-{{--                    @include("layouts.components.NiceSelect.nice-select", [--}}
-{{--                                'placeholder' => 'Year',--}}
-{{--                                'options' => ['2022', '2021', '2020']--}}
-{{--                            ])--}}
-{{--                </div>--}}
-
             </div>
             <div class="col-auto">
 
