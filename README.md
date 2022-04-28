@@ -59,3 +59,11 @@ To deploy this project run
 ```
 
 Project should start at localhost:8000, which is the default startup for laravel. Navigate to this url from your browser and enjoy
+## Appendix
+
+Any additional information goes here
+
+## Note
+
+- Some icons may not appear as it is in the image provided, this is because font awesome was used and some of these icons either does not exist or are not free.
+- Do not disconnect from the internet, some resources are gotten directly from the web
