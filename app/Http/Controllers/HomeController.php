@@ -49,10 +49,9 @@ class HomeController extends Controller
         })->role()
         ->level()
         ->select('users.*', 'r.title as user_role', 'l.title as user_level')
-        ->simplePagination(5);
+        ->paginate(5);
 //        ->get();
         return view($this->userComponent . 'user-list', compact('users'));
-//        return view($this->userComponent . 'user-list')->withUsers($users);
     }
 
     public function updateUsers(Request $request)
