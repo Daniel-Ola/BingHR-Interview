@@ -67,3 +67,4 @@ Any additional information goes here
 
 - Some icons may not appear as it is in the image provided, this is because font awesome was used and some of these icons either does not exist or are not free.
 - Do not disconnect from the internet, some resources are gotten directly from the web
+- The file upload button was included but not functional

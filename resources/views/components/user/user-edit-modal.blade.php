@@ -1,4 +1,4 @@
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modals fades bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -52,6 +52,12 @@
                             </div>
                             <div class="form-group col-md-4 mt-3 mt-sm-0">
                                 <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password *">
+                            </div>
+                        </div>
+                        <div class="form-row row mb-3">
+                            <div class="form-group col-12">
+                                <label for="formFileSm" class="form-label">Profile Image</label>
+                                <input class="form-control form-control-sm" id="formFileSm" type="file" accept="image/*">
                             </div>
                         </div>
                     </div>
