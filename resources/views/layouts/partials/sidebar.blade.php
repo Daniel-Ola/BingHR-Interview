@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<div class="d-flex" style="height: 100vh; width: 300px; background: #fff">
+<div class="d-md-flex d-none" style="height: 100vh; width: 300px; background: #fff">
 {{--     position-fixed--}}
     @include("layouts.partials.tiny-sidebar")
 

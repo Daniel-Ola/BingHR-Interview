@@ -1,4 +1,4 @@
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modals fades bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -20,7 +20,7 @@
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="firstname" placeholder="First Name *" name="firstname">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 mt-3 mt-sm-0">
                                 <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name *">
                             </div>
                         </div>
@@ -28,10 +28,10 @@
                             <div class="form-group col-md-4">
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email ID *">
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-4 mt-3 mt-sm-0">
                                 <input type="tel" class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile No">
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-4 mt-3 mt-sm-0">
                                 <select id="role_id" name="role_id" class="form-control">
                                     <option selected>Select Role Type</option>
                                     @php
@@ -47,10 +47,10 @@
                             <div class="form-group col-md-4">
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Username *">
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-4 mt-3 mt-sm-0">
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password *">
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-4 mt-3 mt-sm-0">
                                 <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password *">
                             </div>
                         </div>
@@ -58,7 +58,7 @@
 
 
                     <div id="permissions-table-list" class="position-relative mt-3" style="overflow-y: auto;">
-
+                        <small>* Click name to set permission</small>
                         <div id="permissions-table-heading" class="d-flex justify-content-around p-3" style="background-color: #EFF4FA;">
                             <div class="name-tab my-table-heading">Module Permission</div>
                             <div class="created-tab my-table-heading text-center">Read</div>
@@ -66,6 +66,7 @@
                             <div class="action-tab my-table-heading text-center">Delete</div>
                         </div>
                         <div class="" id="permissions-table-body">
+                            @include('components.module-permissions')
                             <div class="d-flex justify-content-around align-items-center p-3" style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);">
                                 <div class="name-tab d-flex justify-content-start align-items-center" style="padding-right: 2rem">
                                     <input type="radio" class="toggle_permissions d-none" id="select_super_admin" value="1" name="level_id" data-selector="super_admin_selector">

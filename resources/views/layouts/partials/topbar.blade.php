@@ -1,14 +1,14 @@
 <nav class="container mx-auto py-3" style="border-bottom: 2px solid #F6F9FC;">
 
     <div class="d-flex justify-content-between align-items-center mt-3" style="width: 100%;">
-        <div class="d-flex g-3 me-auto align-items-center">
-            <div class="col-auto text-center d-flex align-items-center" style="margin-right: 3rem; margin-left: 1.5rem;">
+        <div class="d-md-flex d-none g-3 me-auto align-items-center">
+            <div class="col-auto text-center d-flex align-items-center nav-page-title" style="margin-right: 3rem; margin-left: 1.5rem;">
                 <h5>Users</h5>
             </div>
             <div class="col-auto" style="margin-right: 1.5rem">
 
                 <div class="input-group" style="width: 100px; background-color: #fff;">
-                    <select id="nav-select" name="sort_by_year" class="form-control outline-none w-100 border-0" data-url="{{ route('get_users') }}">
+                    <select name="sort_by_year" class="form-control nav-select outline-none w-100 border-0" data-url="{{ route('get_users') }}">
                         <option selected value="">Year</option>
                     </select>
                     <div class="position-absolute top-0 bottom-0" style="right: 5px; color: #DFE4EE">
@@ -21,7 +21,7 @@
             </div>
             <div class="col-auto">
 
-                <div class="input-group" style="width: 300px; background-color: #fff; border-radius: 50px">
+                <div class="input-group my-nav-search" style="width: 300px; background-color: #fff; border-radius: 50px">
                     <input type="text" class="form-control" id="nav-search" placeholder="Search..." style="border: none">
                     <div class="position-absolute top-0 bottom-0" style="right: 10px; color: #DFE4EE">
                         <div class="d-flex align-items-center h-100">
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="">
+        <div class="d-none d-lg-block">
             <div class="d-flex flex-row">
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,6 +84,19 @@
                     </a>
                 </div>
             </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="d-block d-lg-none justify-content-between" id="collapse-navs">
+            <button class="btn btn-link d-none" id="collapse-sidebar">
+                <i class="fa-solid fa-ellipsis-vertical" style="font-size: 30px; color: #000"></i>
+                <i class="fa-solid fa-ellipsis-vertical" style="font-size: 30px; color: #000"></i>
+                <i class="fa-solid fa-ellipsis-vertical" style="font-size: 30px; color: #000"></i>
+{{--                <i class="fa fa-bars" style="font-size: 30px; color: #000"></i>--}}
+            </button>
+            <button class="btn btn-link" id="collapse-topbar">
+                <i class="fa fa-bars" style="font-size: 30px; color: #000"></i>
+            </button>
         </div>
     </div>
 

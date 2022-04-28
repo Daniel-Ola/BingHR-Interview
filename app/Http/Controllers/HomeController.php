@@ -69,6 +69,7 @@ class HomeController extends Controller
 
     public function addUser(Request $request): \Illuminate\Http\JsonResponse
     {
+        // use validator instead
         if ($request->password !== $request->confirm_password) return response()->json(['success' => false, 'message' => 'Password mismatch']);
         try {
             $user = User::create($request->except(['id', 'confirm_password']));

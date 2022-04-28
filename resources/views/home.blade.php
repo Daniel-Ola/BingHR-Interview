@@ -4,19 +4,34 @@
     <div class="container">
 {{--         position-relative--}}
 
-        <div class="d-flex justify-content-end">
-            <div class="">
+        <div class="d-flex justify-content-md-end justify-content-sm-between my-page-heading">
+            <div class="d-block d-sm-none">
+                <h4>Users</h4>
+            </div>
+            <div class="add-new-user-modal-btn">
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-title="Add New User" data-button="Add User" data-url="{{ route('users.create') }}">Add User</button>
             </div>
         </div>
 
 {{--        Table Section--}}
         <div class="w-100 py-2 mt-3" style="border: 2px solid #0395FF; background-color: #fff;">
-            <div class="d-flex justify-content-between px-3">
-                <div class="table-title d-flex justify-content-center align-items-center">
+            <div class="d-sm-flex d-block justify-content-between px-3">
+                <div class="table-title d-flex justify-content-start align-items-start">
                     <h5>List Users</h5>
                 </div>
                 <div class="table-search">
+                    <div class="input-group d-block d-sm-none" style="width: 100px; border: 2px solid #f0f0f0;">
+                        <select name="sort_by_year" class="form-control nav-select outline-none w-100 border-0" data-url="{{ route('get_users') }}">
+                            <option selected value="">Year</option>
+                        </select>
+                        <div class="position-absolute top-0 bottom-0" style="right: 5px; color: #DFE4EE">
+                            <div class="d-flex flex-column align-items-center h-100 justify-content-around">
+                                <i class="fa fa-caret-up" style="top: 5px; position: relative"></i>
+                                <i class="fa fa-caret-down" style="bottom: 5px; position: relative"></i>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="input-group" style="width: 300px; background-color: #fff; border-radius: 50px">
                         <input type="text" class="form-control" id="table-search" placeholder="Search...">
                         <div class="position-absolute top-0 bottom-0" style="right: 10px; color: #DFE4EE">
@@ -29,15 +44,16 @@
             </div>
 
             <div id="users-table-list" class="position-relative px-2 mt-3" style="overflow-y: auto;">
-
-                <div id="table-heading" class="d-flex justify-content-around p-3" style="background-color: #EFF4FA;">
-                    <div class="name-tab my-table-heading">Name</div>
-                    <div class="created-tab my-table-heading">Created Date</div>
-                    <div class="role-tab my-table-heading">Role</div>
-                    <div class="action-tab my-table-heading">Action</div>
-                </div>
-                <div class="" id="table-body">
-                    @include('components.user.user-list')
+                <div id="table-wrapper">
+                    <div id="table-heading" class="d-flex justify-content-around p-3" style="background-color: #EFF4FA;">
+                        <div class="name-tab my-table-heading">Name</div>
+                        <div class="created-tab my-table-heading">Created Date</div>
+                        <div class="role-tab my-table-heading">Role</div>
+                        <div class="action-tab my-table-heading">Action</div>
+                    </div>
+                    <div class="" id="table-body">
+                        @include('components.user.user-list')
+                    </div>
                 </div>
 
             </div>
@@ -121,7 +137,7 @@
             let currentYear = new Date().getFullYear();
 
             for (let i = 1; i <= 5; i++ ) {
-                $("#nav-select").append(
+                $(".nav-select").append(
 
                     $("<option></option>")
                         .attr("value", currentYear)
@@ -131,7 +147,7 @@
                 currentYear--;
             }
             // get user by year
-            $("#nav-select").on('change', function (event) {
+            $(".nav-select").on('change', function (event) {
                 let select = $(this);
                 if(select.val() === '') getUsers();
                 let params = {
