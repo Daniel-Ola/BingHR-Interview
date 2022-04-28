@@ -13,8 +13,8 @@
 {{--        Table Section--}}
         <div class="w-100 py-2 mt-3" style="border: 2px solid #0395FF; background-color: #fff;">
             <div class="d-flex justify-content-between px-3">
-                <div class="table-title">
-                    <h3>List Users</h3>
+                <div class="table-title d-flex justify-content-center align-items-center">
+                    <h5>List Users</h5>
                 </div>
                 <div class="table-search">
                     <div class="input-group" style="width: 300px; background-color: #fff; border-radius: 50px">
@@ -72,6 +72,7 @@
             }
 
             $('#exampleModal').on('show.bs.modal', function (event) {
+                const level_selectors = ['select_super_admin', 'select_admin', 'select_employee', 'select_hr_admin'];
                 let button = $(event.relatedTarget) // Button that triggered the modal
                 let user = button.data('user') // Extract info from data-* attributes
                 let modal = $(this)
@@ -79,7 +80,16 @@
                     let inputElement = modal.find("[name="+ u +"]") ;//.length
                     if(inputElement.length !== 0)
                     {
-                        inputElement.val(user[u]);
+                        if(u === 'level_id') {
+                            let radio = parseInt(user[u]) - 1;
+                            console.log(level_selectors[radio]);
+                            inputElement = $("#" + level_selectors[radio]).next().trigger('click');
+                            // inputElement.val(user[u]);
+                            // inputElement.next().trigger('click');
+                            console.log(inputElement);
+                        } else {
+                            inputElement.val(user[u]);
+                        }
                     }
                 }
                 modal.find("[name='password']").val('');
@@ -134,6 +144,16 @@
                     console.log(data);
                     $('#table-body').empty().html(data)
                 });
+            })
+
+            // toggle user levels
+            $(".toggle_permissions").on('change', function (event) {
+                const item = $(this);
+                let isChecked = item.prop('checked');
+                const checkboxName = '.' + item.data('selector');
+                $("#permissions-table-body").find(".form-check-input").prop('checked', false);
+                $(checkboxName).prop('checked', isChecked);
+                console.log(item.val())
             })
 
 
