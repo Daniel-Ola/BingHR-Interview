@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('mobile_number')->nullable();
             $table->foreignId('role_id')->constrained();
             $table->foreignId('level_id')->constrained();
-            $table->foreignId('profile_picture')->nullable();
+            $table->string('profile_picture')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
