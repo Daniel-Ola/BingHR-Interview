@@ -59,9 +59,7 @@ To deploy this project run
 ```
 
 Project should start at localhost:8000, which is the default startup for laravel. Navigate to this url from your browser and enjoy
-## Appendix
 
-Any additional information goes here
 
 ## Note
 

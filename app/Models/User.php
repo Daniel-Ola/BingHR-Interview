@@ -74,6 +74,14 @@ class User extends Authenticatable
         return \Carbon\Carbon::parse($this->created_at)->format('d M, Y');
     }
 
+    public function getLevelBtnAttribute()
+    {
+        $level = $this->level_id;
+        $level -= 1;
+        $class = ['danger', 'primary', 'success', 'default'];
+        return $class[$level];
+    }
+
 //    public function levels()
 //    {
 //        return $this->hasOne(Level::class);

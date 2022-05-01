@@ -10,7 +10,7 @@
             </div>
             <div class="mx-auto">
 {{--                 d-none d-lg-block--}}
-                <span class="btn btn-sm btn-danger">{{ $user->user_level }}</span>
+                <span class="btn btn-sm btn-{{ $user->level_btn }}">{{ $user->user_level }}</span>
             </div>
 
         </div>
