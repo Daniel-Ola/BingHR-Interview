@@ -67,3 +67,4 @@ Project should start at localhost:8000, which is the default startup for laravel
 - Do not disconnect from the internet, some resources are gotten directly from the web
 - The file upload button was included but not functional
 - Selecting the year updates the users list sorted by created year
+- The design was viewed and tested in polypane browser default mobile, tablet and desktop views. I could not make further test on other devices basically due to the time constraint.
